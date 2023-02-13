@@ -27,7 +27,7 @@
     <link href="public/css/style.css" rel="stylesheet" type="text/css" />
     <!-- /custom style sheet -->
     <!-- fontawesome css -->
-    <link href="public/css/fontawesome-all.css" rel="stylesheet" />
+    <link href="public/layout/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <!-- /fontawesome css -->
     <!-- google fonts-->
     <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -43,25 +43,26 @@
     <h1>Sistema de parqueamiento</h1>
     <div class=" w3l-login-form">
         <h2>Login </h2>
-        <form action="login.php" method="post">
+        <form id="login" class="user">
             <div class=" w3l-form-group">
                 <label>Usuario:</label>
                 <div class="group">
                     <i class="fas fa-user"></i>
-                    <input type="text" class="form-control" placeholder="Usuario" name="username" required="required" />
+                    <input type="text" class="form-control" placeholder="Usuario" name="nick" id="nick" required="required" />
                 </div>
             </div>
             <div class=" w3l-form-group">
                 <label>Password:</label>
                 <div class="group">
                     <i class="fas fa-unlock"></i>
-                    <input type="password" class="form-control" placeholder="Password" name="password" required="required" />
+                    <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="required" />
                 </div>
             </div>
             <div class="forgot">
 
             </div>
-            <button type="submit" name="login">Login</button>
+            <input type="hidden" name="accion" value="ingresar">
+            <button id="ingresar" type="submit">Login</button>
         </form>
         <!--<p class=" w3l-register-p">Mas sistemas aqui<a href="https://ventadecodigofuente.com/" class="register"> mas Codigo fuente aqui</a></p>-->
     </div>
@@ -82,6 +83,51 @@
     <script src="public/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="public/dist/js/demo.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('#login').submit(function(e) {
+                e.preventDefault();
+                var t;
+                $('#ingresar').attr("disabled", "disabled");
+                loginRequest = $.ajax({
+                    url: './backend/ingreso.php',
+                    method: 'POST',
+                    data: $('#login').serialize(),
+                    success: function(data) {
+                        try {
+                            clearTimeout(t); // cancelamos el temporizador
+                            response = JSON.parse(data);
+                            if (response.status == "success") {
+                                location.href = './pages/home/';
+                            } else {
+                                alert(response.message);
+                               
+                            }
+                        } catch (error) {
+                            swal("Advertencia", "Ocurrio un error intentado resolver la solicitud. Por favor contacte con el administrador del sistema", "warning");
+                            console.log(error);
+                        }
+                    },
+                    error: function(error) {
+                        swal("Advertencia", "Ocurrio un error intentado comunicarse con el servidor. Por favor contacte con el administrador de la red", "warning");
+                        console.log(error);
+                    }
+                });
+
+                // Chequeamos el tiempo que tarda en resolverse la solicitud
+                t = setTimeout(function() {
+                    // Si la solicitud no fue resuelta en 10 segundos entonces la cancelamos
+                    if (loginRequest.readyState != 4) {
+                        loginRequest.abort();
+                        swal("Advertencia", "Ocurrio un error intentado comunicarse con el servidor. Por favor contacte con el administrador de la red", "warning");
+                        $('#ingresar').removeAttr("disabled");
+                    }
+                }, 10000);
+            });
+
+        });
+    </script>
 </body>
 
 </html>

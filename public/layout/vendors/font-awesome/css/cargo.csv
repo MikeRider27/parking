@@ -1,0 +1,14 @@
+"id_cargo","descripcion","id_categoria","user_create","create_date","user_update","update_date"
+1,"Profesional Sanitario I – Médicos",2,NULL,NULL,"2","2023-01-31 00:00:00"
+2,"Profesional Sanitario II – Bioquímico/a, Químico Farmacéutico, Odontólogo, Ingeniero Químico, Lic. Química Industrial, Lic. Ciencias Químicas",2,NULL,NULL,"2","2023-01-31 00:00:00"
+3,"Profesional Sanitario II – Licenciatura de Blanco",2,NULL,NULL,"2","2023-01-31 00:00:00"
+4,"Técnico de Blanco",2,NULL,NULL,"2","2023-01-31 00:00:00"
+5,"Auxiliar de Blanco",2,NULL,NULL,"2","2023-01-31 00:00:00"
+6,"Profesional I – Profesional Administrativo",1,NULL,NULL,NULL,NULL
+7,"Profesional II – Profesional Administrativo",1,NULL,NULL,NULL,NULL
+8,"Asistente Técnico Administrativo A",1,NULL,NULL,NULL,NULL
+9,"Asistente Técnico Administrativo B",1,NULL,NULL,NULL,NULL
+10,"JEFE DE DEPARTAMENTO",1,NULL,NULL,NULL,NULL
+11,"PROFESIONAL ADMINISTRATIVO",1,NULL,NULL,NULL,NULL
+12,"TÉCNICO ESPECIALISTA",1,NULL,NULL,NULL,NULL
+13,"TÉCNICO II",1,NULL,NULL,NULL,NULL
