@@ -47,14 +47,14 @@
             <div class=" w3l-form-group">
                 <label>Usuario:</label>
                 <div class="group">
-                    <i class="fas fa-user"></i>
+                <i class="glyphicon glyphicon-user"></i> 
                     <input type="text" class="form-control" placeholder="Usuario" name="nick" id="nick" required="required" />
                 </div>
             </div>
             <div class=" w3l-form-group">
                 <label>Password:</label>
                 <div class="group">
-                    <i class="fas fa-unlock"></i>
+                    <i class="glyphicon glyphicon-lock"></i>
                     <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="required" />
                 </div>
             </div>

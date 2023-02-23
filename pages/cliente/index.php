@@ -1,73 +1,59 @@
 <?php include "../home/header.php"; ?>
 <div class="right_col" role="main" style="min-height: 821px">
-          <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x-panel"></div>
-            </div>
-            <!--end of modal-dialog-->
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x-panel"></div>
+    </div>
+    <!--end of modal-dialog-->
+  </div>
+
+  <div class="panel-heading"></div>
+
+  <!--end of modal-->
+
+  <div class="box-header">
+    <h3 class="box-title"></h3>
+  </div>
+  <!-- /.box-header -->
+  <a class="btn btn-success btn-print" href="https://programacionparacompartir.com/parking/pages/cliente/cliente.php" onclick="window.print()"><i class="glyphicon glyphicon-print"></i> Impresión</a>
+  <a class="btn btn-info btn-print" href="create.php" role="button"><i class="glyphicon glyphicon-plus"></i> Registrar</a>
+
+  <div class="box-body">
+    <!--end of modal-->
+
+    <div class="box-header">
+      <h3 class="box-title">Clientes Registrados</h3>
+    </div>
+    <!-- /.box-header -->
+
+    <div class="box-body">
+      <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <table id="listado" class="table table-bordered table-striped dataTable no-footer">
+              <thead>
+                <tr role="row">
+                  <th>#</th>
+                  <th>Nombres</th>
+                  <th>Apellidos</th>
+                  <th>Telefono</th>
+                  <th>Ruc</th>
+                  <th>Cedula</th>
+                  <th>Accion</th>
+                </tr>
+              </thead>
+
+            </table>
           </div>
-
-          <div class="panel-heading"></div>
-
-          <!--end of modal-->
-
-          <div class="box-header">
-            <h3 class="box-title"></h3>
-          </div>
-          <!-- /.box-header -->
-          <a
-            class="btn btn-success btn-print"
-            href="https://programacionparacompartir.com/parking/pages/cliente/cliente.php"
-            onclick="window.print()"
-            ><i class="glyphicon glyphicon-print"></i> Impresión</a
-          >
-          <a
-            class="btn btn-info btn-print"
-            href="create.php"
-           
-            role="button"
-            ><i class="glyphicon glyphicon-plus"></i>  Registrar</a
-          >
-
-          <div class="box-body">
-            <!--end of modal-->
-
-            <div class="box-header">
-              <h3 class="box-title">Clientes Registrados</h3>
-            </div>
-            <!-- /.box-header -->
-
-            <div class="box-body">
-              <div
-                id="example2_wrapper"
-                class="dataTables_wrapper form-inline dt-bootstrap no-footer"
-              >
-
-                <div class="row">
-                  <div class="col-sm-12">
-                    <table id="listado" class="table table-bordered table-striped dataTable no-footer">
-                      <thead>
-                        <tr role="row">
-                          <th>#</th>
-                          <th>Nombres</th>
-                          <th>Apellidos</th>
-                          <th>Telefono</th>
-                          <th>Ruc</th>
-                          <th>Cedula</th>
-                          <th>Accion</th>
-                        </tr>
-                      </thead>
-                    
-                    </table>
-                  </div>
-                </div>
-               
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.col -->
         </div>
+
+      </div>
+    </div>
+    <!-- /.box-body -->
+  </div>
+  <!-- /.col -->
+</div>
 <?php include "../home/footer.php"; ?>
 <script>
   $(function() {
@@ -75,10 +61,10 @@
 
     function handleAjaxError(xhr, textStatus, error) {
       if (textStatus === "timeout") {
-        toastr.warning('Ocurrió un error intentado comunicarse con el servidor. Por favor contacte con el administrador de la red.');      
+        toastr.warning('Ocurrió un error intentado comunicarse con el servidor. Por favor contacte con el administrador de la red.');
         document.getElementById("listado_processing").style.display = "none";
       } else {
-        toastr.warning('Ocurrió un error intentado comunicarse con el servidor. Por favor contacte con el administrador del sistema.');   
+        toastr.warning('Ocurrió un error intentado comunicarse con el servidor. Por favor contacte con el administrador del sistema.');
         document.getElementById("listado_processing").style.display = "none";
       }
     }
@@ -115,8 +101,8 @@
       ],
       "columnDefs": [{
         "render": function(number_row, type, row) {
-          return '<button class="btn btn-warning btn-user" onclick="modificar(' + row.id_cliente + ');"> <i class="glyphicon glyphicon-edit"></i> </button>' + 
-                '<button class="btn btn-danger btn-user" onclick="eliminar(' + row.id_cliente + ');"><i class="glyphicon glyphicon-trash"></i> </button>';
+          return '<button class="btn btn-warning btn-user" onclick="modificar(' + row.id_cliente + ');"> <i class="glyphicon glyphicon-edit"></i> </button>' +
+            '<button class="btn btn-danger btn-user" onclick="eliminar(' + row.id_cliente + ');"><i class="glyphicon glyphicon-trash"></i> </button>';
         },
         "orderable": false,
         "targets": 6 // columna modificar usuario
@@ -195,7 +181,7 @@
     modificar = function(codigo, nombres, id) {
       $('#modal-editar').modal('toggle');
       $('#codigo').val(codigo);
-      $('#nombres').val(nombres);    
+      $('#nombres').val(nombres);
       $('#id_categorias').val(id);
       $('#id_categorias').trigger('change');
     };
