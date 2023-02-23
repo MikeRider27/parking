@@ -22,18 +22,18 @@
             ><i class="glyphicon glyphicon-print"></i> Impresión</a
           >
           <a
-            class="btn btn-warning btn-print"
-            href="https://programacionparacompartir.com/parking/pages/cliente/cliente_agregar.php"
+            class="btn btn-info btn-print"
+            href="create.php"
            
             role="button"
-            >REGISTRAR</a
+            ><i class="glyphicon glyphicon-plus"></i>  Registrar</a
           >
 
           <div class="box-body">
             <!--end of modal-->
 
             <div class="box-header">
-              <h3 class="box-title">Vehiculos registrados</h3>
+              <h3 class="box-title">Clientes Registrados</h3>
             </div>
             <!-- /.box-header -->
 
@@ -42,212 +42,26 @@
                 id="example2_wrapper"
                 class="dataTables_wrapper form-inline dt-bootstrap no-footer"
               >
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="dataTables_length" id="example2_length">
-                      <label
-                        >Show
-                        <select
-                          name="example2_length"
-                          aria-controls="example2"
-                          class="form-control input-sm"
-                        >
-                          <option value="10">10</option>
-                          <option value="25">25</option>
-                          <option value="50">50</option>
-                          <option value="-1">All</option>
-                        </select>
-                        entries</label
-                      >
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div id="example2_filter" class="dataTables_filter">
-                      <label
-                        >Buscar:<input
-                          type="search"
-                          class="form-control input-sm"
-                          placeholder=""
-                          aria-controls="example2"
-                      /></label>
-                    </div>
-                  </div>
-                </div>
+
                 <div class="row">
                   <div class="col-sm-12">
-                    <table
-                      id="example2"
-                      class="table table-bordered table-striped dataTable no-footer"
-                      role="grid"
-                      aria-describedby="example2_info"
-                    >
+                    <table id="listado" class="table table-bordered table-striped dataTable no-footer">
                       <thead>
                         <tr role="row">
-                          <th
-                            class="sorting_asc"
-                            tabindex="0"
-                            aria-controls="example2"
-                            rowspan="1"
-                            colspan="1"
-                            aria-sort="ascending"
-                            aria-label="#: activate to sort column descending"
-                            style="width: 48px"
-                          >
-                            #
-                          </th>
-                          <th
-                            class="sorting"
-                            tabindex="0"
-                            aria-controls="example2"
-                            rowspan="1"
-                            colspan="1"
-                            aria-label="Nombres: activate to sort column ascending"
-                            style="width: 139px"
-                          >
-                            Nombres
-                          </th>
-                          <th
-                            class="sorting"
-                            tabindex="0"
-                            aria-controls="example2"
-                            rowspan="1"
-                            colspan="1"
-                            aria-label="Apellidos: activate to sort column ascending"
-                            style="width: 143px"
-                          >
-                            Apellidos
-                          </th>
-                          <th
-                            class="sorting"
-                            tabindex="0"
-                            aria-controls="example2"
-                            rowspan="1"
-                            colspan="1"
-                            aria-label="Telefono: activate to sort column ascending"
-                            style="width: 133px"
-                          >
-                            Telefono
-                          </th>
-                          <th
-                            class="sorting"
-                            tabindex="0"
-                            aria-controls="example2"
-                            rowspan="1"
-                            colspan="1"
-                            aria-label="Ruc: activate to sort column ascending"
-                            style="width: 129px"
-                          >
-                            Ruc
-                          </th>
-                          <th
-                            class="sorting"
-                            tabindex="0"
-                            aria-controls="example2"
-                            rowspan="1"
-                            colspan="1"
-                            aria-label="DNI: activate to sort column ascending"
-                            style="width: 88px"
-                          >
-                            DNI
-                          </th>
-                          <th
-                            class="btn-print sorting"
-                            tabindex="0"
-                            aria-controls="example2"
-                            rowspan="1"
-                            colspan="1"
-                            aria-label=" Accion : activate to sort column ascending"
-                            style="width: 314px"
-                          >
-                            Accion
-                          </th>
+                          <th>#</th>
+                          <th>Nombres</th>
+                          <th>Apellidos</th>
+                          <th>Telefono</th>
+                          <th>Ruc</th>
+                          <th>Cedula</th>
+                          <th>Accion</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <!--end of modal-->
-
-                        <tr role="row" class="odd">
-                          <td class="sorting_1">1</td>
-
-                          <td>Consumidor</td>
-                          <td>Final</td>
-                          <td>12345678</td>
-                          <td>11111111222</td>
-                          <td>11111111</td>
-
-                          <td>
-                            <a
-                              class="btn btn-success btn-print"
-                              href="https://programacionparacompartir.com/parking/pages/cliente/modificar_cliente.php?id_cliente=1"
-                              role="button"
-                              >Modificar</a
-                            >
-                            <a
-                              class="btn btn-danger btn-print"
-                              href="https://programacionparacompartir.com/parking/pages/cliente/eliminar_cliente.php?id_cliente=1"
-                              role="button"
-                              >Eliminar</a
-                            >
-                          </td>
-                        </tr>
-                      </tbody>
+                    
                     </table>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-sm-5">
-                    <div
-                      class="dataTables_info"
-                      id="example2_info"
-                      role="status"
-                      aria-live="polite"
-                    >
-                      Showing 1 to 1 of 1 entries
-                    </div>
-                  </div>
-                  <div class="col-sm-7">
-                    <div
-                      class="dataTables_paginate paging_simple_numbers"
-                      id="example2_paginate"
-                    >
-                      <ul class="pagination">
-                        <li
-                          class="paginate_button previous disabled"
-                          id="example2_previous"
-                        >
-                          <a
-                            href="https://programacionparacompartir.com/parking/pages/cliente/cliente.php#"
-                            aria-controls="example2"
-                            data-dt-idx="0"
-                            tabindex="0"
-                            >anterior</a
-                          >
-                        </li>
-                        <li class="paginate_button active">
-                          <a
-                            href="https://programacionparacompartir.com/parking/pages/cliente/cliente.php#"
-                            aria-controls="example2"
-                            data-dt-idx="1"
-                            tabindex="0"
-                            >1</a
-                          >
-                        </li>
-                        <li
-                          class="paginate_button next disabled"
-                          id="example2_next"
-                        >
-                          <a
-                            href="https://programacionparacompartir.com/parking/pages/cliente/cliente.php#"
-                            aria-controls="example2"
-                            data-dt-idx="2"
-                            tabindex="0"
-                            >posterior</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+               
               </div>
             </div>
             <!-- /.box-body -->
@@ -255,3 +69,224 @@
           <!-- /.col -->
         </div>
 <?php include "../home/footer.php"; ?>
+<script>
+  $(function() {
+
+
+    function handleAjaxError(xhr, textStatus, error) {
+      if (textStatus === "timeout") {
+        toastr.warning('Ocurrió un error intentado comunicarse con el servidor. Por favor contacte con el administrador de la red.');      
+        document.getElementById("listado_processing").style.display = "none";
+      } else {
+        toastr.warning('Ocurrió un error intentado comunicarse con el servidor. Por favor contacte con el administrador del sistema.');   
+        document.getElementById("listado_processing").style.display = "none";
+      }
+    }
+    var table = $('#listado').DataTable({
+      "responsive": true,
+      "lengthChange": false,
+      "autoWidth": false,
+      "ajax": {
+        url: "../../backend/listados/cliente.php",
+        timeout: 15000,
+        error: handleAjaxError
+      },
+      "columns": [{
+          "data": "id_cliente"
+        }, // first column of table
+        {
+          "data": "nombre"
+        }, // first column of table
+        {
+          "data": "apellido"
+        },
+        {
+          "data": "telefono"
+        },
+        {
+          "data": "ruc"
+        },
+        {
+          "data": "cedula"
+        },
+        {
+          "data": "id_cliente"
+        } // last column of table
+      ],
+      "columnDefs": [{
+        "render": function(number_row, type, row) {
+          return '<button class="btn btn-warning btn-user" onclick="modificar(' + row.id_cliente + ');"> <i class="glyphicon glyphicon-edit"></i> </button>' + 
+                '<button class="btn btn-danger btn-user" onclick="eliminar(' + row.id_cliente + ');"><i class="glyphicon glyphicon-trash"></i> </button>';
+        },
+        "orderable": false,
+        "targets": 6 // columna modificar usuario
+      }],
+      "language": {
+        "decimal": "",
+        "emptyTable": "No hay registros en la tabla",
+        "info": "Se muestran _START_ a _END_ de _TOTAL_ registros",
+        "infoEmpty": "Se muestran 0 a 0 de 0 registros",
+        "infoFiltered": "(filtrado de _MAX_ registros totales)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ registros",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Filtrar por (Nombre):",
+        "zeroRecords": "No se encontraron registros que coincidan",
+        "paginate": {
+          "first": "Primero",
+          "last": "Último",
+          "next": "Siguiente",
+          "previous": "Anterior"
+        },
+        "aria": {
+          "sortAscending": ": activar para ordenar la columna ascendente",
+          "sortDescending": ": activar para ordenar la columna descendente"
+        }
+      }
+    });
+
+    $('#form').submit(function(e) {
+      e.preventDefault();
+      if ($('#nombre').val() == "") {
+        toastr.warning('Favor registrar una descripcion del cargo.');
+      } else if ($('#id_categoria').val() == "") {
+        toastr.warning('Favor registrar una categoria para el cargo.');
+      } else {
+        $('#guardar').attr("disabled", "disabled");
+        $.ajax({
+          url: '../../backend/cargos',
+          method: 'POST',
+          data: $('#form').serialize(),
+          success: function(data) {
+            try {
+              response = JSON.parse(data);
+              if (response.status == "success") {
+                $('#modal-agregar').modal('hide');
+                toastr.success(response.message);
+                setTimeout(function() {
+                  $('#nombre').val('');
+                  $('#guardar').removeAttr("disabled");
+                  table.ajax.reload();
+                }, 3000);
+              } else if (response.status == "error" && response.message == "No autorizado") {
+                toastr.error('Su sesión ha expirado, favor vuelva a iniciar sesión en el sistema.');
+                setTimeout(function() {
+                  window.location.href = "../../index";
+                }, 2000);
+              } else {
+                toastr.error(response.message)
+                $('#guardar').removeAttr("disabled");
+              }
+            } catch (error) {
+              toastr.error('Ocurrio un error intentado resolver la solicitud. Por favor contacte con el administrador del sistema');
+              console.log(error);
+
+            }
+          },
+          error: function(error) {
+            toastr.error('Ocurrio un error intentado resolver la solicitud. Por favor contacte con el administrador de la red')
+            console.log(error);
+          }
+        });
+      }
+    });
+    modificar = function(codigo, nombres, id) {
+      $('#modal-editar').modal('toggle');
+      $('#codigo').val(codigo);
+      $('#nombres').val(nombres);    
+      $('#id_categorias').val(id);
+      $('#id_categorias').trigger('change');
+    };
+
+    $('#form_editar').submit(function(e) {
+      e.preventDefault();
+      if ($('#nombres').val() == "") {
+        toastr.warning('Favor registrar una descripcion del cargo.');
+      } else {
+        $('#modificar').attr("disabled", "disabled");
+        $.ajax({
+          url: '../../backend/cargos',
+          method: 'POST',
+          data: $('#form_editar').serialize(),
+          success: function(data) {
+            try {
+              response = JSON.parse(data);
+              if (response.status == "success") {
+                $('#modal-editar').modal('hide');
+                toastr.success(response.message);
+                setTimeout(function() {
+                  table.ajax.reload();
+                  $('#modificar').removeAttr("disabled");
+                }, 3000);
+              } else if (response.status == "error" && response.message == "No autorizado") {
+                toastr.error('Su sesión ha expirado, favor vuelva a iniciar sesión en el sistema.');
+                setTimeout(function() {
+                  window.location.href = "../../index";
+                }, 2000);
+              } else {
+                toastr.error(response.message)
+                $('#modificar').removeAttr("disabled");
+              }
+            } catch (error) {
+              toastr.error('Ocurrio un error intentado resolver la solicitud. Por favor contacte con el administrador del sistema');
+              console.log(error);
+
+            }
+          },
+          error: function(error) {
+            toastr.error('Ocurrio un error intentado resolver la solicitud. Por favor contacte con el administrador de la red')
+            console.log(error);
+          }
+        });
+      }
+
+    });
+
+    eliminar = function(codigo) {
+      swal({
+        title: "Confirmar",
+        text: "Está seguro que desea eliminar el registro?",
+        type: "warning",
+        confirmButtonText: "SI",
+        confirmButtonColor: "#5cb85c",
+        showCancelButton: true,
+        cancelButtonText: "NO",
+      }, function(isConfirm) {
+        if (isConfirm) {
+          $.ajax({
+            url: '../../backend/cargos',
+            method: 'POST',
+            data: 'accion=eliminar&codigo=' + codigo,
+            success: function(data) {
+              try {
+                response = JSON.parse(data);
+                if (response.status == "success") {
+                  toastr.success(response.message);
+                  setTimeout(function() {
+                    table.ajax.reload();
+                  }, 3000);
+                } else {
+                  toastr.error(response.message);
+                }
+              } catch (error) {
+                toastr.error('Ocurrio un error intentado resolver la solicitud. Por favor contacte con el administrador del sistema');
+                console.log(error);
+              }
+            },
+            error: function(data) {
+              toastr.error('Ocurrio un error intentado resolver la solicitud. Por favor contacte con el administrador de la red')
+              console.log(error);
+            }
+          });
+        }
+      });
+
+
+    }
+
+
+
+  });
+</script>

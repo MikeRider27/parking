@@ -28,12 +28,12 @@
                 </div>
                 <div class="col-md-4 btn-print">
                     <div class="form-group">
-                        <input type="text" class="form-control pull-right" id="nombre" name="nombre" required="" placeholder="Nombre"/>
+                        <input type="text" class="form-control pull-right" id="nombre" name="nombre" required=""/>
                     </div>
                 </div>
                 <div class="col-md-4 btn-print"></div>
             </div>
-            <br>
+      
             <div class="row">
                 <div class="col-md-3 btn-print">
                     <div class="form-group">
@@ -43,12 +43,11 @@
                 </div>
                 <div class="col-md-4 btn-print">
                     <div class="form-group">
-                        <input type="text" class="form-control pull-right" id="apellido" name="apellido" required="" placeholder="Apellido"/>
+                        <input type="text" class="form-control pull-right" id="apellido" name="apellido" required=""/>
                     </div>
                 </div>
                 <div class="col-md-4 btn-print"></div>
             </div>
-            <br>
             <div class="row">
                 <div class="col-md-3 btn-print">
                     <div class="form-group">
@@ -58,7 +57,7 @@
                 </div>
                 <div class="col-md-4 btn-print">
                     <div class="form-group">
-                        <input type="text" class="form-control pull-right" id="ruc" name="ruc" placeholder="RUC"/>
+                        <input type="text" class="form-control pull-right" id="ruc" name="ruc"/>
                     </div>
                 </div>
                 <div class="col-md-4 btn-print"></div>
@@ -73,7 +72,7 @@
                 </div>
                 <div class="col-md-4 btn-print">
                     <div class="form-group">
-                        <input type="text" class="form-control pull-right" id="cedula" name="cedula" placeholder="Cédula/Nro. Documento"/>
+                        <input type="text" class="form-control pull-right" id="cedula" name="cedula"/>
                     </div>
                 </div>
                 <div class="col-md-4 btn-print"></div>

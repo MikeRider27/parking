@@ -35,6 +35,8 @@
     <script src="../../public/layout/vendors/jszip/dist/jszip.min.js"></script>
     <script src="../../public/layout/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="../../public/layout/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <!-- Toastr -->
+ <script src="../../public/toastr/toastr.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="../../public/layout/build/js/custom.min.js"></script>
     <!-- Datatables -->
@@ -121,30 +123,7 @@
     </script>
 
 
-    <script>
-        $(document).ready(function() {
-            $('#example2').dataTable({
-                    "language": {
-                        "paginate": {
-                            "previous": "anterior",
-                            "next": "posterior"
-                        },
-                        "search": "Buscar:",
-
-
-                    },
-
-                    "info": false,
-                    "lengthChange": false,
-                    "searching": false,
-
-
-                    "searching": true,
-                }
-
-            );
-        });
-    </script>
+   
     <!-- /gauge.js -->
 </body>
 

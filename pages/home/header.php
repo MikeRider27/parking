@@ -36,6 +36,8 @@ if (!isset($_SESSION['id_usuario'])) {
     <link href="../../public/layout/build/css/custom.min.css" rel="stylesheet">
     <script type="text/javascript" src="../../public/layout/js/jquery.js"></script>
     <script type="text/javascript" src="../../public/layout/js/chartJS/Chart.min.js"></script>
+     <!-- Toastr -->
+     <link rel="stylesheet" href="../../public/toastr/toastr.min.css">
     <style>
         h5,
         h6 {
