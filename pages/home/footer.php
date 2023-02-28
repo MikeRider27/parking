@@ -36,7 +36,9 @@
     <script src="../../public/layout/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="../../public/layout/vendors/pdfmake/build/vfs_fonts.js"></script>
     <!-- Toastr -->
- <script src="../../public/toastr/toastr.min.js"></script>
+    <script src="../../public/toastr/toastr.min.js"></script>
+    <!-- SweetAlert -->
+    <script src="../../public/js/sweetalert.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="../../public/layout/build/js/custom.min.js"></script>
     <!-- Datatables -->

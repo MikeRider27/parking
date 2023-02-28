@@ -15,7 +15,7 @@
     <h3 class="box-title"></h3>
   </div>
   <!-- /.box-header -->
-  <a class="btn btn-success btn-print" href="https://programacionparacompartir.com/parking/pages/cliente/cliente.php" onclick="window.print()"><i class="glyphicon glyphicon-print"></i> Impresión</a>
+  <a class="btn btn-success btn-print" href="" onclick="window.print()"><i class="glyphicon glyphicon-print"></i> Impresión</a>
   <a class="btn btn-info btn-print" href="create.php" role="button"><i class="glyphicon glyphicon-plus"></i> Registrar</a>
 
   <div class="box-body">
@@ -133,102 +133,12 @@
       }
     });
 
-    $('#form').submit(function(e) {
-      e.preventDefault();
-      if ($('#nombre').val() == "") {
-        toastr.warning('Favor registrar una descripcion del cargo.');
-      } else if ($('#id_categoria').val() == "") {
-        toastr.warning('Favor registrar una categoria para el cargo.');
-      } else {
-        $('#guardar').attr("disabled", "disabled");
-        $.ajax({
-          url: '../../backend/cargos',
-          method: 'POST',
-          data: $('#form').serialize(),
-          success: function(data) {
-            try {
-              response = JSON.parse(data);
-              if (response.status == "success") {
-                $('#modal-agregar').modal('hide');
-                toastr.success(response.message);
-                setTimeout(function() {
-                  $('#nombre').val('');
-                  $('#guardar').removeAttr("disabled");
-                  table.ajax.reload();
-                }, 3000);
-              } else if (response.status == "error" && response.message == "No autorizado") {
-                toastr.error('Su sesión ha expirado, favor vuelva a iniciar sesión en el sistema.');
-                setTimeout(function() {
-                  window.location.href = "../../index";
-                }, 2000);
-              } else {
-                toastr.error(response.message)
-                $('#guardar').removeAttr("disabled");
-              }
-            } catch (error) {
-              toastr.error('Ocurrio un error intentado resolver la solicitud. Por favor contacte con el administrador del sistema');
-              console.log(error);
+  
+    modificar = function(codigo) {
+      window.location.href = 'edit.php?cliente=' + codigo;
+      };
 
-            }
-          },
-          error: function(error) {
-            toastr.error('Ocurrio un error intentado resolver la solicitud. Por favor contacte con el administrador de la red')
-            console.log(error);
-          }
-        });
-      }
-    });
-    modificar = function(codigo, nombres, id) {
-      $('#modal-editar').modal('toggle');
-      $('#codigo').val(codigo);
-      $('#nombres').val(nombres);
-      $('#id_categorias').val(id);
-      $('#id_categorias').trigger('change');
-    };
-
-    $('#form_editar').submit(function(e) {
-      e.preventDefault();
-      if ($('#nombres').val() == "") {
-        toastr.warning('Favor registrar una descripcion del cargo.');
-      } else {
-        $('#modificar').attr("disabled", "disabled");
-        $.ajax({
-          url: '../../backend/cargos',
-          method: 'POST',
-          data: $('#form_editar').serialize(),
-          success: function(data) {
-            try {
-              response = JSON.parse(data);
-              if (response.status == "success") {
-                $('#modal-editar').modal('hide');
-                toastr.success(response.message);
-                setTimeout(function() {
-                  table.ajax.reload();
-                  $('#modificar').removeAttr("disabled");
-                }, 3000);
-              } else if (response.status == "error" && response.message == "No autorizado") {
-                toastr.error('Su sesión ha expirado, favor vuelva a iniciar sesión en el sistema.');
-                setTimeout(function() {
-                  window.location.href = "../../index";
-                }, 2000);
-              } else {
-                toastr.error(response.message)
-                $('#modificar').removeAttr("disabled");
-              }
-            } catch (error) {
-              toastr.error('Ocurrio un error intentado resolver la solicitud. Por favor contacte con el administrador del sistema');
-              console.log(error);
-
-            }
-          },
-          error: function(error) {
-            toastr.error('Ocurrio un error intentado resolver la solicitud. Por favor contacte con el administrador de la red')
-            console.log(error);
-          }
-        });
-      }
-
-    });
+   
 
     eliminar = function(codigo) {
       swal({
@@ -242,9 +152,9 @@
       }, function(isConfirm) {
         if (isConfirm) {
           $.ajax({
-            url: '../../backend/cargos',
+            url: '../../backend/cliente.php',
             method: 'POST',
-            data: 'accion=eliminar&codigo=' + codigo,
+            data: 'accion=eliminar&id=' + codigo,
             success: function(data) {
               try {
                 response = JSON.parse(data);

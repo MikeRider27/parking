@@ -15,12 +15,13 @@
         <h3 class="box-title">REGISTRAR CLIENTE</h3>
     </div>
     <!-- /.box-header -->
-    <a class="btn btn-warning btn-print" href="https://programacionparacompartir.com/parking/pages/cliente/cliente.php" role="button">Regresar</a>
+    <a class="btn btn-warning btn-print" href="" role="button">Regresar</a>
 
     <div class="box-body">
-        <form id="form">
+
+        <form id="form" class="form-horizontal">
             <div class="row">
-                <div class="col-md-3 btn-print">
+                <div class="col-md-4 btn-print">
                     <div class="form-group">
                         <label for="date">Nombres </label>
                     </div>
@@ -28,14 +29,14 @@
                 </div>
                 <div class="col-md-4 btn-print">
                     <div class="form-group">
-                        <input type="text" class="form-control pull-right" id="nombre" name="nombre" required=""/>
+                        <input type="text" class="form-control pull-right" id="nombre" name="nombre" placeholder="Nombre" />
                     </div>
                 </div>
                 <div class="col-md-4 btn-print"></div>
             </div>
-      
+
             <div class="row">
-                <div class="col-md-3 btn-print">
+                <div class="col-md-4 btn-print">
                     <div class="form-group">
                         <label for="date">Apellidos </label>
                     </div>
@@ -43,13 +44,13 @@
                 </div>
                 <div class="col-md-4 btn-print">
                     <div class="form-group">
-                        <input type="text" class="form-control pull-right" id="apellido" name="apellido" required=""/>
+                        <input type="text" class="form-control pull-right" id="apellido" name="apellido" placeholder="Apellido" />
                     </div>
                 </div>
                 <div class="col-md-4 btn-print"></div>
             </div>
             <div class="row">
-                <div class="col-md-3 btn-print">
+                <div class="col-md-4 btn-print">
                     <div class="form-group">
                         <label for="date">Ruc</label>
                     </div>
@@ -57,14 +58,14 @@
                 </div>
                 <div class="col-md-4 btn-print">
                     <div class="form-group">
-                        <input type="text" class="form-control pull-right" id="ruc" name="ruc"/>
+                        <input type="text" class="form-control pull-right" id="ruc" name="ruc" placeholder="RUC" />
                     </div>
                 </div>
                 <div class="col-md-4 btn-print"></div>
             </div>
 
             <div class="row">
-                <div class="col-md-3 btn-print">
+                <div class="col-md-4 btn-print">
                     <div class="form-group">
                         <label for="date">Cédula/Nro. Documento</label>
                     </div>
@@ -72,14 +73,14 @@
                 </div>
                 <div class="col-md-4 btn-print">
                     <div class="form-group">
-                        <input type="text" class="form-control pull-right" id="cedula" name="cedula"/>
+                        <input type="text" class="form-control pull-right" id="cedula" name="cedula" placeholder="Cédula/Nro. Documento" />
                     </div>
                 </div>
                 <div class="col-md-4 btn-print"></div>
             </div>
 
             <div class="row">
-                <div class="col-md-3 btn-print">
+                <div class="col-md-4 btn-print">
                     <div class="form-group">
                         <label for="date">Telefono</label>
                     </div>
@@ -101,3 +102,63 @@
     <!-- /.box-body -->
 </div>
 <?php include "../home/footer.php"; ?>
+
+<script>
+    $(function() {
+
+        $('#form').submit(function(e) {
+            e.preventDefault();
+            if ($('#nombre').val() == "" || $('#apellido').val() == "") {
+                toastr.warning('Favor registrar un Nombre y Apellido para el cliente.');
+            } else if ($('#ruc').val() == "") {
+                toastr.warning('Favor registrar un RUC para el cliente.');
+            } else if ($('#cedula').val() == "") {
+                toastr.warning('Favor registrar un Nro. de Documento para el cliente.');
+            } else if ($('#telefono').val() == "") {
+                toastr.warning('Favor registrar un Telefono para el cliente.');
+            } else {
+                $('#guardar').attr("disabled", "disabled");
+                $.ajax({
+                    url: '../../backend/cliente.php',
+                    method: 'POST',
+                    data: $('#form').serialize(),
+                    success: function(data) {
+                        try {
+                            response = JSON.parse(data);
+                            if (response.status == "success") {
+                                toastr.success(response.message);
+                                setTimeout(function() {
+                                    window.location.href = "index.php";
+                                }, 3000);
+                            } else if (response.status == "error" && response.message == "No autorizado") {
+                                toastr.error('Su sesión ha expirado, favor vuelva a iniciar sesión en el sistema.');
+                                setTimeout(function() {
+                                    window.location.href = "../../index";
+                                }, 2000);
+                            } else {
+                                toastr.error(response.message)
+                                $('#guardar').removeAttr("disabled");
+                            }
+                        } catch (error) {
+                            toastr.error('Ocurrio un error intentado resolver la solicitud. Por favor contacte con el administrador del sistema');
+                            console.log(error);
+
+                        }
+                    },
+                    error: function(error) {
+                        toastr.error('Ocurrio un error intentado resolver la solicitud. Por favor contacte con el administrador de la red')
+                        console.log(error);
+                    }
+                });
+            }
+        });
+
+
+
+
+
+
+
+
+    });
+</script>

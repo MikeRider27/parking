@@ -38,6 +38,8 @@ if (!isset($_SESSION['id_usuario'])) {
     <script type="text/javascript" src="../../public/layout/js/chartJS/Chart.min.js"></script>
      <!-- Toastr -->
      <link rel="stylesheet" href="../../public/toastr/toastr.min.css">
+     <!-- SweetAlert -->
+     <link rel="stylesheet" href="../../public/css/sweetalert.css">
     <style>
         h5,
         h6 {
